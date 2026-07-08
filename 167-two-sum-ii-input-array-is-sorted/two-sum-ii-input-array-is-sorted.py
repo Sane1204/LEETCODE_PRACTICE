@@ -10,4 +10,5 @@ class Solution:
                 left +=1
             else:
                 ans = [left + 1, right+1]
+                break
         return ans
