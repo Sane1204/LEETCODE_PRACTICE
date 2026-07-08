@@ -6,8 +6,8 @@ class Solution:
         
         for i in range(k):
             add+=nums[i]
-            best = add
-            left = nums[0]
+        best = add
+            
 
         for i in range(k,len(nums)):
             add+= nums[i] - nums[i-k]
