@@ -1,21 +1,26 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         letter={}
-        
-        if len(s)!= len(t):
+        if len(s) != len(t):
             return False
         else:
-            for ch in s:
-                if ch in letter:
-                    letter[ch]+=1
+            for i in s:
+                if i in letter:
+                    letter[i]+=1
                 else:
-                    letter[ch]=1
-            for ch in t:
-                if ch in letter:
-                    letter[ch]-=1
-                    if letter[ch]<0:
-                        return False 
+                    letter[i] = 1
+            for i in t:
+                if i in letter:
+                    letter[i] -=1
+                    if letter[i]<0:
+                        return False
                 else:
-                   return False 
+                    return False
             else:
                 return True
+                    
+                
+                
+        
+
+
