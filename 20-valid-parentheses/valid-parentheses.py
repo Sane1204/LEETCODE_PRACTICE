@@ -1,24 +1,23 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        dic={"]":"[",")":"(","}":"{"}
-        stack=[]
-
-        for i in s:
-            if i in dic:
-                if not stack:
-                    return False
-                if stack[-1] != dic[i]:
-                    return False
-                stack.pop()
+        st=[]
+        for ch in s:
+            if (self.isopen(ch)):
+                st.append(ch)
             else:
-                stack.append(i)
-        return not stack
+                if (len(st)==0):
+                    return False
+                else:
+                    if (self.doesmatch(st[-1],ch)):
+                        st.pop()
+                    else:
+                        return False
+        if len(st)==0:
+            return True
+        else:
+            return False
 
-
-
-
-
-
-
-
-        
+    def isopen(self, ch):
+        return ch == '(' or ch=='[' or ch=='{'
+    def doesmatch(self , op,cl):
+        return (op == '(' and cl == ')') or (op == '[' and cl == ']') or (op == '{' and cl == '}')
