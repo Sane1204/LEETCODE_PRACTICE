@@ -1,12 +1,15 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        lol={}
-        ans=[]
+        ans= []
+        right = len(numbers)-1
+        left = 0
+
         for i in range(len(numbers)):
-            key = target - numbers[i]
-            if key in lol:
-                ans=[(lol[key] +1) , (i+1)]
-                break 
-            
-            lol[numbers[i]]= i
+            if numbers[left]+ numbers[right]> target:
+                right-=1
+            elif numbers[left]+ numbers[right]< target:
+                left+=1
+            else:
+                ans=[left+1,right+1]
         return ans
+
